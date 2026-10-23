@@ -28,6 +28,14 @@ https://daisyui.com/components/drawer/#navbar-menu-for-desktop--sidebar-drawer-f
         </label>
       </div>
       <a class="mx-2 flex flex-row gap-2 pt-1" href="/">
+        {{#if logoUrl}}
+        <img
+          src="{{logoUrl}}"
+          alt="{{appName}}"
+          class="h-6 w-auto"
+          fetchpriority="high"
+        />
+        {{else}}
         <img
           src="/assets/lazztech_title.svg"
           alt="Lazztech"
@@ -36,6 +44,7 @@ https://daisyui.com/components/drawer/#navbar-menu-for-desktop--sidebar-drawer-f
           height="356"
           fetchpriority="high"
         />
+        {{/if}}
         <span class="text-lg">| {{appName}}</span>
         <div class="relative size-6">
           <div id="offline-indicator" class="absolute inset-0">

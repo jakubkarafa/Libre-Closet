@@ -7,6 +7,15 @@ import { FastifyRequest } from 'fastify';
 import { I18nContext } from 'nestjs-i18n';
 import { User } from '../dal/entity/user.entity';
 
+// Black or white, whichever reads better on the given #rrggbb (WCAG relative luminance).
+function readableContent(hex: string) {
+  const [r, g, b] = [1, 3, 5].map((i) => {
+    const c = parseInt(hex.slice(i, i + 2), 16) / 255;
+    return c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.179 ? '#000000' : '#ffffff';
+}
+
 @Injectable()
 export class ViewContextService {
   private logger = new Logger(ViewContextService.name);
@@ -41,9 +50,22 @@ export class ViewContextService {
     const appDescription =
       'Self-hosted wardrobe organizer. Catalog clothes with photos, build outfits, and install as an offline PWA. Free and open-source. No subscription, no ads.';
     const ogImage = `${baseUrl}/assets/lazztech_icon.png`;
+    // Optional brand colours (validated #rrggbb in app.module) override the daisyUI theme variables.
+    const themeStyle = (['primary', 'accent'] as const)
+      .map((name) => {
+        const color = this.configService.get<string>(
+          `${name.toUpperCase()}_COLOR`,
+        );
+        return color
+          ? `--color-${name}:${color};--color-${name}-content:${readableContent(color)};`
+          : '';
+      })
+      .join('');
 
     const context: Record<string, any> = {
       appName,
+      themeStyle,
+      logoUrl: this.configService.get<string>('LOGO_URL'),
       siteUrl,
       baseUrl: req.url === '/' ? '' : req.url,
       authEnabled: this.configService.get<boolean>('AUTH_ENABLED'),

@@ -2,7 +2,9 @@
 {{!-- locale value is for internationalization comes from the nest-i18n module
 and is provided globally in the ViewContextMiddleware
 https://nestjs-i18n.com/quick-start --}}
-<html lang="{{locale}}">
+{{!-- themeStyle: optional PRIMARY_COLOR / ACCENT_COLOR overrides; an inline
+style beats every daisyUI theme selector, light and dark --}}
+<html lang="{{locale}}"{{#if themeStyle}} style="{{themeStyle}}"{{/if}}>
   <head>
     <meta charset="UTF-8" />
     <meta
