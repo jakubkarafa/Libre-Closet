@@ -63,6 +63,16 @@ style beats every daisyUI theme selector, light and dark --}}
     <script defer src="/js/color-multiselect.js" defer></script>
     <script defer src="/js/confirm-dialog.js"></script>
     <script defer src="/js/combobox.js"></script>
+    <script defer src="/js/datepicker.js"></script>
+    {{!-- the date picker's words (public/js/datepicker.js); month and day names come from Intl --}}
+    <template
+      id="datepicker-strings"
+      data-clear="{{t 'lang.CLEAR'}}"
+      data-no-date="{{t 'lang.NO_DATE'}}"
+      data-prev="{{t 'lang.PREVIOUS_MONTH'}}"
+      data-next="{{t 'lang.NEXT_MONTH'}}"
+      data-choose="{{t 'lang.CHOOSE_DATE'}}"
+    ></template>
     <script type="importmap">
       {
         "imports": {
