@@ -34,6 +34,7 @@ describe('ViewContextService', () => {
     const context = await contextWith({});
     expect(context.themeStyle).toBe('');
     expect(context.logoUrl).toBeUndefined();
+    expect(context.customCssUrl).toBeUndefined();
   });
 
   it('sets brand colours with a readable content colour', async () => {
@@ -58,5 +59,10 @@ describe('ViewContextService', () => {
   it('passes LOGO_URL to the navbar', async () => {
     const context = await contextWith({ LOGO_URL: '/assets/logo.svg' });
     expect(context.logoUrl).toBe('/assets/logo.svg');
+  });
+
+  it('passes CUSTOM_CSS_URL to the layout', async () => {
+    const context = await contextWith({ CUSTOM_CSS_URL: '/custom/theme.css' });
+    expect(context.customCssUrl).toBe('/custom/theme.css');
   });
 });

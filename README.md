@@ -158,6 +158,7 @@ npm run start:prod
 | `RADIUS_BOX`                       | Rounding of cards and modals (`px` / `rem`)         | daisyUI theme  | `22px`                                                                                    |
 | `RADIUS_FIELD`                     | Rounding of buttons and inputs (`px` / `rem`)       | daisyUI theme  | `999px`                                                                                   |
 | `RADIUS_SELECTOR`                  | Rounding of checkboxes and badges                   | daisyUI theme  | `8px`                                                                                     |
+| `CUSTOM_CSS_URL`                   | Extra stylesheet after the theme (URL or path)        | none           | `/custom/theme.css`                                                                       |
 | `DATA_PATH`                        | Directory for SQLite DB and uploaded files          | `./data`       | `./libre-closet-data`                                                                     |
 | `AUTH_ENABLED`                     | Enable JWT user accounts and login                  | `false`        | `true`                                                                                    |
 | `DISABLE_REGISTRATION`             | Disallows user sign ups when true                   | `false`        | `true`                                                                                    |

@@ -51,16 +51,17 @@ export class ViewContextService {
       'Self-hosted wardrobe organizer. Catalog clothes with photos, build outfits, and install as an offline PWA. Free and open-source. No subscription, no ads.';
     const ogImage = `${baseUrl}/assets/lazztech_icon.png`;
     // Optional brand colours (validated #rrggbb in app.module) override the daisyUI theme variables.
-    const themeStyle = (['primary', 'accent'] as const)
-      .map((name) => {
-        const color = this.configService.get<string>(
-          `${name.toUpperCase()}_COLOR`,
-        );
-        return color
-          ? `--color-${name}:${color};--color-${name}-content:${readableContent(color)};`
-          : '';
-      })
-      .join('') +
+    const themeStyle =
+      (['primary', 'accent'] as const)
+        .map((name) => {
+          const color = this.configService.get<string>(
+            `${name.toUpperCase()}_COLOR`,
+          );
+          return color
+            ? `--color-${name}:${color};--color-${name}-content:${readableContent(color)};`
+            : '';
+        })
+        .join('') +
       // Optional corner rounding (validated CSS lengths in app.module): cards / modals, buttons / inputs, checkboxes / badges.
       (['box', 'field', 'selector'] as const)
         .map((name) => {
@@ -75,6 +76,7 @@ export class ViewContextService {
       appName,
       themeStyle,
       logoUrl: this.configService.get<string>('LOGO_URL'),
+      customCssUrl: this.configService.get<string>('CUSTOM_CSS_URL'),
       siteUrl,
       baseUrl: req.url === '/' ? '' : req.url,
       authEnabled: this.configService.get<boolean>('AUTH_ENABLED'),

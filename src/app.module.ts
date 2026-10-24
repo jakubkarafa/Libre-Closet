@@ -92,6 +92,9 @@ import { ViewContextModule } from './view-context/view-context.module';
           .pattern(/^#[0-9a-fA-F]{6}$/)
           .optional(),
         LOGO_URL: Joi.string().optional(),
+        CUSTOM_CSS_URL: Joi.string()
+          .pattern(/^(https?:\/\/|\/)[^\s"'<>]*$/)
+          .optional(),
         RADIUS_BOX: Joi.string()
           .pattern(/^\d+(\.\d+)?(px|rem)$/)
           .optional(),
