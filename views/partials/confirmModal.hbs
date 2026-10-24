@@ -1,0 +1,13 @@
+{{!-- The one dialog every hx-confirm uses (public/js/confirm-dialog.js), styled like the app instead of the browser's confirm() --}}
+<dialog id="confirm-modal" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <p id="confirm-modal-question" class="text-base font-semibold"></p>
+    <form method="dialog" class="modal-action">
+      <button value="cancel" class="btn btn-ghost">{{t 'lang.CANCEL'}}</button>
+      <button value="ok" class="btn btn-primary">{{t 'lang.OK'}}</button>
+    </form>
+  </div>
+  <form method="dialog" class="modal-backdrop">
+    <button value="cancel">{{t 'lang.CANCEL'}}</button>
+  </form>
+</dialog>

@@ -61,6 +61,7 @@ style beats every daisyUI theme selector, light and dark --}}
     <script defer src="/modules/Sortable.min.js"></script>
     <script defer src="/modules/sse.js"></script>
     <script defer src="/js/color-multiselect.js" defer></script>
+    <script defer src="/js/confirm-dialog.js"></script>
     <script type="importmap">
       {
         "imports": {
@@ -96,7 +97,7 @@ style beats every daisyUI theme selector, light and dark --}}
     loading hbs rendered content which is pre-santized by the handlebars
     templatinng engine as it get's rendered.
     https://handlebarsjs.com/guide/expressions.html#literal-segments
-    https://htmx.org/essays/web-security-basics-with-htmx/ }} {{{body}}} {{#if
+    https://htmx.org/essays/web-security-basics-with-htmx/ }} {{{body}}} {{>confirmModal}} {{#if
     showSupporterPrompt}}{{>supporterModal}}{{/if}} {{! The service worker is
     used in conjunction with the manifest.json to enable PWA (Progressive Web
     App) functionality. This script tag uses JavaScript modules, so the proper
