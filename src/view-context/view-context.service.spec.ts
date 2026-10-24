@@ -47,6 +47,14 @@ describe('ViewContextService', () => {
     );
   });
 
+  it('sets corner rounding', async () => {
+    const context = await contextWith({
+      RADIUS_BOX: '22px',
+      RADIUS_FIELD: '999px',
+    });
+    expect(context.themeStyle).toBe('--radius-box:22px;--radius-field:999px;');
+  });
+
   it('passes LOGO_URL to the navbar', async () => {
     const context = await contextWith({ LOGO_URL: '/assets/logo.svg' });
     expect(context.logoUrl).toBe('/assets/logo.svg');

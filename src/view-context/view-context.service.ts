@@ -60,7 +60,16 @@ export class ViewContextService {
           ? `--color-${name}:${color};--color-${name}-content:${readableContent(color)};`
           : '';
       })
-      .join('');
+      .join('') +
+      // Optional corner rounding (validated CSS lengths in app.module): cards / modals, buttons / inputs, checkboxes / badges.
+      (['box', 'field', 'selector'] as const)
+        .map((name) => {
+          const radius = this.configService.get<string>(
+            `RADIUS_${name.toUpperCase()}`,
+          );
+          return radius ? `--radius-${name}:${radius};` : '';
+        })
+        .join('');
 
     const context: Record<string, any> = {
       appName,

@@ -155,6 +155,9 @@ npm run start:prod
 | `PRIMARY_COLOR`                    | Brand colour for buttons and highlights (`#rrggbb`) | daisyUI theme  | `#14b8a6`                                                                                 |
 | `ACCENT_COLOR`                     | Accent colour (`#rrggbb`)                           | daisyUI theme  | `#f59e0b`                                                                                 |
 | `LOGO_URL`                         | Navbar logo image (URL or path)                     | Lazztech logo  | `/assets/my-logo.svg`                                                                     |
+| `RADIUS_BOX`                       | Rounding of cards and modals (`px` / `rem`)         | daisyUI theme  | `22px`                                                                                    |
+| `RADIUS_FIELD`                     | Rounding of buttons and inputs (`px` / `rem`)        | daisyUI theme  | `999px`                                                                                   |
+| `RADIUS_SELECTOR`                  | Rounding of checkboxes and badges                   | daisyUI theme  | `8px`                                                                                     |
 | `DATA_PATH`                        | Directory for SQLite DB and uploaded files          | `./data`       | `./libre-closet-data`                                                                     |
 | `AUTH_ENABLED`                     | Enable JWT user accounts and login                  | `false`        | `true`                                                                                    |
 | `DISABLE_REGISTRATION`             | Disallows user sign ups when true                   | `false`        | `true`                                                                                    |
