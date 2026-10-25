@@ -154,6 +154,8 @@ npm run start:prod
 | `APP_NAME`                         | Display name shown in the UI and navbar             | `Libre Closet` | `My awesome Closet manager`                                                               |
 | `PRIMARY_COLOR`                    | Brand colour for buttons and highlights (`#rrggbb`) | daisyUI theme  | `#14b8a6`                                                                                 |
 | `ACCENT_COLOR`                     | Accent colour (`#rrggbb`)                           | daisyUI theme  | `#f59e0b`                                                                                 |
+| `BACKGROUND_COLOR`                 | Page background before the styles load (`#rrggbb`)  | browser        | `#fafafa`                                                                                 |
+| `BACKGROUND_COLOR_DARK`            | The same in dark mode (`#rrggbb`)                   | the light one  | `#1d232a`                                                                                 |
 | `LOGO_URL`                         | Navbar logo image (URL or path)                     | Lazztech logo  | `/assets/my-logo.svg`                                                                     |
 | `RADIUS_BOX`                       | Rounding of cards and modals (`px` / `rem`)         | daisyUI theme  | `22px`                                                                                    |
 | `RADIUS_FIELD`                     | Rounding of buttons and inputs (`px` / `rem`)       | daisyUI theme  | `999px`                                                                                   |

@@ -11,6 +11,16 @@ style beats every daisyUI theme selector, light and dark --}}
       name="viewport"
       content="viewport-fit=cover, width=device-width, initial-scale=1.0"
     />
+    {{!-- BACKGROUND_COLOR / _DARK: the first paint (before bundle.css loads) and the browser bar use
+    the theme's background instead of the browser's default; the stylesheets still decide once loaded --}}
+    {{#if backgroundColor}}
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="{{backgroundColor}}" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="{{backgroundColorDark}}" />
+    <style>
+      html { background: {{backgroundColor}}; }
+      @media (prefers-color-scheme: dark) { html { background: {{backgroundColorDark}}; color-scheme: dark; } }
+    </style>
+    {{/if}}
     {{! https://developer.chrome.com/docs/lighthouse/seo/meta-description }}
     <meta name="description" content="{{ogDescription}}" />
     {{!-- Canonical URL --}}

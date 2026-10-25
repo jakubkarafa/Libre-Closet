@@ -72,9 +72,17 @@ export class ViewContextService {
         })
         .join('');
 
+    // Optional page background (validated #rrggbb in app.module), painted before any stylesheet loads; dark falls back to light.
+    const backgroundColor = this.configService.get<string>('BACKGROUND_COLOR');
+    const backgroundColorDark =
+      this.configService.get<string>('BACKGROUND_COLOR_DARK') ??
+      backgroundColor;
+
     const context: Record<string, any> = {
       appName,
       themeStyle,
+      backgroundColor,
+      backgroundColorDark,
       logoUrl: this.configService.get<string>('LOGO_URL'),
       customCssUrl: this.configService.get<string>('CUSTOM_CSS_URL'),
       siteUrl,

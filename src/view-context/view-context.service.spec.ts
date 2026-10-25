@@ -35,6 +35,22 @@ describe('ViewContextService', () => {
     expect(context.themeStyle).toBe('');
     expect(context.logoUrl).toBeUndefined();
     expect(context.customCssUrl).toBeUndefined();
+    expect(context.backgroundColor).toBeUndefined();
+  });
+
+  it('sets the first-paint background, dark falling back to light', async () => {
+    expect(
+      await contextWith({ BACKGROUND_COLOR: '#ecf8f7' }),
+    ).toMatchObject({
+      backgroundColor: '#ecf8f7',
+      backgroundColorDark: '#ecf8f7',
+    });
+    expect(
+      await contextWith({
+        BACKGROUND_COLOR: '#ecf8f7',
+        BACKGROUND_COLOR_DARK: '#143935',
+      }),
+    ).toMatchObject({ backgroundColorDark: '#143935' });
   });
 
   it('sets brand colours with a readable content colour', async () => {

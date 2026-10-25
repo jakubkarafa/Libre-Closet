@@ -91,6 +91,12 @@ import { ViewContextModule } from './view-context/view-context.module';
         ACCENT_COLOR: Joi.string()
           .pattern(/^#[0-9a-fA-F]{6}$/)
           .optional(),
+        BACKGROUND_COLOR: Joi.string()
+          .pattern(/^#[0-9a-fA-F]{6}$/)
+          .optional(),
+        BACKGROUND_COLOR_DARK: Joi.string()
+          .pattern(/^#[0-9a-fA-F]{6}$/)
+          .optional(),
         LOGO_URL: Joi.string().optional(),
         CUSTOM_CSS_URL: Joi.string()
           .pattern(/^(https?:\/\/|\/)[^\s"'<>]*$/)
